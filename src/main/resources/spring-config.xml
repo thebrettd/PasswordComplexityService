@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.brett.PasswordComplianceService"/>
+
+    <bean id="masterValidator" class="com.brett.PasswordComplianceService.MasterValidator">
+        <property name="validators">
+            <list>
+                <ref bean="LowerCaseAndNumericalOnlyBean"/>
+                <ref bean="BetweenFiveAndTwleveCharsBean"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="LowerCaseAndNumericalOnlyBean" class="com.brett.PasswordComplianceService.ComplianceRule.LowerCaseAndNumericalOnly"/>
+    <bean id="BetweenFiveAndTwleveCharsBean" class="com.brett.PasswordComplianceService.ComplianceRule.BetweenFiveAndTwelveChars"/>
+
+
+</beans>
