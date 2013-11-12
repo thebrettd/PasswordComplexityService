@@ -19,8 +19,6 @@ public class UtilsTests {
         assertTrue(Utils.containsDigit("ABC1ABC"));
     }
 
-
-
     @Test
     public void testContainsLowerCase() throws Exception {
         assertTrue(Utils.containsLowerCase("a"));
@@ -31,6 +29,20 @@ public class UtilsTests {
 
         assertTrue(Utils.containsLowerCase("abc123"));
         assertTrue(Utils.containsLowerCase("Abc123"));
+    }
+
+    @Test
+    public void testValidChar() throws Exception {
+        assertTrue(Utils.validChar('a'));
+        assertFalse(Utils.validChar('A'));
+        assertFalse(Utils.validChar('1'));
+    }
+
+    @Test
+    public void testValidDigit() throws Exception {
+        assertTrue(Utils.validDigit('1'));
+        assertFalse(Utils.validDigit('a'));
+        assertFalse(Utils.validDigit('A'));
     }
 
 

@@ -76,7 +76,7 @@ public class LowerCaseAndNumericalOnlyTests {
     }
 
     @Test
-    public void testValid() throws Exception{
+    public void testBasicValid() throws Exception{
         Password passwordToTest = new Password();
         passwordToTest.setMyPassword("abc123");
         LowerCaseAndNumericalOnly validator = new LowerCaseAndNumericalOnly();
@@ -86,6 +86,19 @@ public class LowerCaseAndNumericalOnlyTests {
 
         assertFalse(errors.hasErrors());
         assertNull(errors.getFieldError("myPassword"));
+    }
+
+    @Test
+    public void testCombinationInvalid() throws Exception{
+        Password passwordToTest = new Password();
+        passwordToTest.setMyPassword("abcABC123");
+        LowerCaseAndNumericalOnly validator = new LowerCaseAndNumericalOnly();
+
+        Errors errors = new BeanPropertyBindingResult(passwordToTest, "passwordToTest");
+        validator.validate(passwordToTest, errors);
+
+        assertTrue(errors.hasErrors());
+        assertNotNull(errors.getFieldError("myPassword"));
     }
 
 

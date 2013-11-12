@@ -26,19 +26,42 @@ public class LowerCaseAndNumericalOnly implements Validator {
 
         Password password = (Password) target;
 
-        if (password.getMyPassword() != null){
+        String passwordString = password.getMyPassword();
+        if (passwordString != null){
 
-            // [a-z] a through z lowercase
-            // //d a digit 0-9
-            // ([a-z]|[\\d]])*
+            boolean charFound = false;
+            boolean digitFound = false;
+            boolean invalidCharFound = false;
 
-            if (! (Utils.containsDigit(password.getMyPassword()) && Utils.containsLowerCase(password.getMyPassword()) ) ){
-                errors.rejectValue("myPassword", "Password must contain at least one letter and at least one digit");
+            for (int i=0;i< passwordString.length();i++){
+                boolean currCharValid = false;
+                boolean currDigitValid = false;
+                char c = passwordString.charAt(i);
+
+                if (Utils.validChar(c)){
+                    charFound = true;
+                    currCharValid = true;
+                }
+                else if (Utils.validDigit(c)){
+                    digitFound = true;
+                    currDigitValid = true;
+                }
+
+                if(!currCharValid && !currDigitValid){
+                    invalidCharFound = true;
+                }
             }
 
-            //todo
-            //must contain ONLY digit and lowercase
 
+            if (!charFound){
+                errors.rejectValue("myPassword", "Password must contain at least one lowercase letter");
+            }
+            if (!digitFound){
+                errors.rejectValue("myPassword", "Password must contain at least one digit");
+            }
+            if (invalidCharFound){
+                errors.rejectValue("myPassword", "Password may only contain lowercase letters and digits");
+            }
         }
 
 
