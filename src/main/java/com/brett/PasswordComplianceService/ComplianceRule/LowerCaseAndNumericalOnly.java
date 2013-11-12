@@ -6,14 +6,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-public class LowerCaseAndNumericalOnly implements Validator {
+public class LowerCaseAndNumericalOnly extends PasswordComplianceRule {
 
     public LowerCaseAndNumericalOnly(){}
-
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return Password.class.equals(clazz);
-    }
 
     /***
      * Must consist of a mixture of lowercase letters and numerical digits only, with at least one of each.
@@ -51,7 +46,6 @@ public class LowerCaseAndNumericalOnly implements Validator {
                     invalidCharFound = true;
                 }
             }
-
 
             if (!charFound){
                 errors.rejectValue("myPassword", "Password must contain at least one lowercase letter");

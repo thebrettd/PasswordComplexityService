@@ -5,14 +5,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-public class BetweenFiveAndTwelveChars implements Validator {
+public class BetweenFiveAndTwelveChars extends PasswordComplianceRule {
 
     public BetweenFiveAndTwelveChars(){}
-
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return Password.class.equals(clazz);
-    }
 
     /***
      * Password must be between 5 and 12 characters exclusive
