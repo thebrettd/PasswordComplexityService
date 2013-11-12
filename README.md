@@ -9,6 +9,7 @@ To enable/disable a PasswordComplianceRule rule, you must create a bean in sprin
 
 For example, to add a new a new FooRule, you would create the class com.brett.PasswordComplianceService.ComplianceRule.FooRule, and add the following:
 
+```html
 <bean id="masterValidator" class="com.brett.PasswordComplianceService.MasterValidator">
         <property name="validators">
             <list>
@@ -22,4 +23,4 @@ For example, to add a new a new FooRule, you would create the class com.brett.Pa
 <bean id="lowerCaseAndNumericalOnlyBean" class="com.brett.PasswordComplianceService.ComplianceRule.LowerCaseAndNumericalOnly"/>
 <bean id="betweenFiveAndTwleveCharsBean" class="com.brett.PasswordComplianceService.ComplianceRule.BetweenFiveAndTwelveChars"/>
 <bean id="fooRule" class="com.brett.PasswordComplianceService.ComplianceRule.FooRule"/>
-    
+```    
