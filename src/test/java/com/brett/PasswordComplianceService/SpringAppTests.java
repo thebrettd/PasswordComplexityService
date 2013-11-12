@@ -19,5 +19,8 @@ public class SpringAppTests {
         Password password = new Password();
         password.setMyPassword("abc123");
         Assert.assertEquals(true, passwordComplianceService.validatePassword(password));
+
+        password.setMyPassword("short");
+        Assert.assertEquals(false, passwordComplianceService.validatePassword(password));
     }
 }
