@@ -11,10 +11,7 @@ public class PasswordComplianceService {
     @Autowired
     MasterValidator parentValidator;
 
-    public PasswordComplianceService(){
-
-
-    }
+    public PasswordComplianceService(){ }
 
     public boolean validatePassword(Password passwordToTest) {
         Errors errors = new BeanPropertyBindingResult(passwordToTest, "passwordToTest");

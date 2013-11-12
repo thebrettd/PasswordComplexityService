@@ -5,9 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class PasswordComplianceApp {
 
-    public boolean validatePassword(String password){
-        return true;
-    }
+
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
