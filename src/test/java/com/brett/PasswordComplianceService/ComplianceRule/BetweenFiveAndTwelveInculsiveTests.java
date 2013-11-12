@@ -8,16 +8,16 @@ import org.springframework.validation.Errors;
 
 import static org.junit.Assert.*;
 
-public class BetweenFiveAndTwelveCharsTests {
+public class BetweenFiveAndTwelveInculsiveTests {
 
     Password passwordToTest;
-    BetweenFiveAndTwelveChars validator;
+    BetweenFiveAndTwelveCharsInclusive validator;
     Errors errors;
 
     @Before
     public void initialize(){
         passwordToTest = new Password();
-        validator = new BetweenFiveAndTwelveChars();
+        validator = new BetweenFiveAndTwelveCharsInclusive();
         errors = new BeanPropertyBindingResult(passwordToTest, "passwordToTest");
     }
 
@@ -34,7 +34,7 @@ public class BetweenFiveAndTwelveCharsTests {
         assertTrue(errors.hasErrors());
         assertNotNull(errors.getFieldError("myPassword"));
 
-        passwordToTest.setMyPassword("123");
+        passwordToTest.setMyPassword("1234");
         validator.validate(passwordToTest, errors);
         assertTrue(errors.hasErrors());
         assertNotNull(errors.getFieldError("myPassword"));
@@ -42,19 +42,18 @@ public class BetweenFiveAndTwelveCharsTests {
 
     @Test
     public void testValid() throws Exception {
-        passwordToTest.setMyPassword("123456");
+        passwordToTest.setMyPassword("12345");
         validator.validate(passwordToTest, errors);
         assertFalse(errors.hasErrors());
 
-        passwordToTest.setMyPassword("12345678901");
+        passwordToTest.setMyPassword("123456789012");
         validator.validate(passwordToTest, errors);
         assertFalse(errors.hasErrors());
-
     }
 
     @Test
     public void testTooLong() throws Exception {
-        passwordToTest.setMyPassword("123456789012");
+        passwordToTest.setMyPassword("1234567890123");
         validator.validate(passwordToTest, errors);
         assertTrue(errors.hasErrors());
         assertNotNull(errors.getFieldError("myPassword"));

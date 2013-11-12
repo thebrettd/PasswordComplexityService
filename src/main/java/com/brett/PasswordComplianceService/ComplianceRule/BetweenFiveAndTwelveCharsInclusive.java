@@ -4,12 +4,12 @@ import com.brett.PasswordComplianceService.Password;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 
-public class BetweenFiveAndTwelveChars extends PasswordComplianceRule {
+public class BetweenFiveAndTwelveCharsInclusive extends PasswordComplianceRule {
 
-    public BetweenFiveAndTwelveChars(){}
+    public BetweenFiveAndTwelveCharsInclusive(){}
 
     /***
-     * Password must be between 5 and 12 characters exclusive
+     * Password must be between 6 and 12 characters inclusive
      * @param target
      * @param errors
      */
@@ -20,10 +20,10 @@ public class BetweenFiveAndTwelveChars extends PasswordComplianceRule {
         Password password = (Password) target;
 
         if (password.getMyPassword() != null){
-            if (password.getMyPassword().length() < 6){
-                errors.rejectValue("myPassword", "Password must be greater than 5 characters long");
-            }else if (password.getMyPassword().length() > 11){
-                errors.rejectValue("myPassword", "Password cannot be longer than 11 characters");
+            if (password.getMyPassword().length() < 5){
+                errors.rejectValue("myPassword", "Password must be at least 6 characters long");
+            }else if (password.getMyPassword().length() > 12){
+                errors.rejectValue("myPassword", "Password cannot be longer than 12 characters");
             }
         }
     }

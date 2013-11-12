@@ -11,13 +11,15 @@
         <property name="validators">
             <list>
                 <ref bean="lowerCaseAndNumericalOnlyBean"/>
-                <ref bean="betweenFiveAndTwleveCharsBean"/>
+                <ref bean="betweenFiveAndTwleveCharsExclusiveBean"/>
+                <!--ref bean="betweenFiveAndTwleveCharsInclusiveBean"/-->
             </list>
         </property>
     </bean>
 
     <bean id="lowerCaseAndNumericalOnlyBean" class="com.brett.PasswordComplianceService.ComplianceRule.LowerCaseAndNumericalOnly"/>
-    <bean id="betweenFiveAndTwleveCharsBean" class="com.brett.PasswordComplianceService.ComplianceRule.BetweenFiveAndTwelveChars"/>
+    <bean id="betweenFiveAndTwleveCharsExclusiveBean" class="com.brett.PasswordComplianceService.ComplianceRule.BetweenFiveAndTwelveCharsExclusive"/>
+    <bean id="betweenFiveAndTwleveCharsInclusiveBean" class="com.brett.PasswordComplianceService.ComplianceRule.BetweenFiveAndTwelveCharsInclusive"/>
 
 
 </beans>
