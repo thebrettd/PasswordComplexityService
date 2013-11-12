@@ -4,7 +4,6 @@ import com.brett.PasswordComplianceService.Password;
 import com.brett.PasswordComplianceService.utils.Utils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.Validator;
 
 public class LowerCaseAndNumericalOnly extends PasswordComplianceRule {
 

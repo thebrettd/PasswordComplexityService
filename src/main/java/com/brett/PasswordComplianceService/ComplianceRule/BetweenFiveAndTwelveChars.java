@@ -3,7 +3,6 @@ package com.brett.PasswordComplianceService.ComplianceRule;
 import com.brett.PasswordComplianceService.Password;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.Validator;
 
 public class BetweenFiveAndTwelveChars extends PasswordComplianceRule {
 

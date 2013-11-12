@@ -10,14 +10,14 @@
     <bean id="masterValidator" class="com.brett.PasswordComplianceService.MasterValidator">
         <property name="validators">
             <list>
-                <ref bean="LowerCaseAndNumericalOnlyBean"/>
-                <ref bean="BetweenFiveAndTwleveCharsBean"/>
+                <ref bean="lowerCaseAndNumericalOnlyBean"/>
+                <ref bean="betweenFiveAndTwleveCharsBean"/>
             </list>
         </property>
     </bean>
 
-    <bean id="LowerCaseAndNumericalOnlyBean" class="com.brett.PasswordComplianceService.ComplianceRule.LowerCaseAndNumericalOnly"/>
-    <bean id="BetweenFiveAndTwleveCharsBean" class="com.brett.PasswordComplianceService.ComplianceRule.BetweenFiveAndTwelveChars"/>
+    <bean id="lowerCaseAndNumericalOnlyBean" class="com.brett.PasswordComplianceService.ComplianceRule.LowerCaseAndNumericalOnly"/>
+    <bean id="betweenFiveAndTwleveCharsBean" class="com.brett.PasswordComplianceService.ComplianceRule.BetweenFiveAndTwelveChars"/>
 
 
 </beans>
