@@ -23,9 +23,7 @@ public class PasswordComplianceService {
     public boolean validatePassword(Password passwordToTest) {
         Errors errors = new BeanPropertyBindingResult(passwordToTest, "passwordToTest");
 
-        for(Validator validator : parentValidator.getValidators()){
-            validator.validate(passwordToTest,errors);
-        }
+        parentValidator.validate(passwordToTest, errors);
 
         return !errors.hasErrors();
     }
