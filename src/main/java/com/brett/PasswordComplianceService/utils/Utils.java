@@ -26,4 +26,18 @@ public class Utils {
         Matcher m = DECIMAL_DIGIT.matcher(Character.toString(c));
         return m.matches();
     }
+
+    /***
+     * (\p{Digit}|[\p{L}&&[^\p{Lu}]]) - Matches any digit or non-uppercase
+     * +? ensure at least one match is made, and is reluctant (matches as little as possbile)
+     * \\1 is a backreference to the first group (i.e. match whatever is in the first group again)
+     * @param myPassword
+     * @return
+     */
+    public static boolean containsDuplicateSequence(String myPassword) {
+
+        Pattern p = Pattern.compile("((\\p{Digit}|[\\p{L}&&[^\\p{Lu}]])+?)\\1");
+        return p.matcher(myPassword).find();
+    }
+
 }
