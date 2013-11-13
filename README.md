@@ -33,6 +33,7 @@ As a more concrete example, you can change from password length of 5 to 12 exclu
 ```    
 
 Note: It is incumbent upon the user to avoid using conflicting PasswordComplianceRules
+Also note: SpringAppTests.java assumes the presence of 3 specific tests. If you enable/disable validations per the above, you may need to modify this test as well.
 
 Tests
 =========================
