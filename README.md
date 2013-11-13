@@ -5,9 +5,9 @@ Password Complexity Service configurable via IoC. Passwords can be validated usi
 
 Quick start guide
 =========================
-1.) Get the code 
-2.) In the root project directory, enter the command: 'mvn clean package'
-3.) In the root project directory, enter the command: 'java -jar target/dependency/jetty-runner.jar target/*.war'
+1. Get the code 
+2. In the root project directory, enter the command: 'mvn clean package'
+3. In the root project directory, enter the command: 'java -jar target/dependency/jetty-runner.jar target/*.war'
 
 Jetty should launch and you will see the following:
 
