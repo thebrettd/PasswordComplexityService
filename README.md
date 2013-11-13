@@ -33,3 +33,10 @@ As a more concrete example, you can change from password length of 5 to 12 exclu
 ```    
 
 Note: It is incumbent upon the user to avoid using conflicting PasswordComplianceRules
+
+Tests
+=========================
+The application is deployed to http://passwordcomplexityservice.herokuapp.com/validate
+
+You can test it by running any of the CURL scripts located in the project test directory
+
