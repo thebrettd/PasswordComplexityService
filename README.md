@@ -9,10 +9,10 @@ A password compliance rule can be created by Extending the PasswordComplianceRul
 To enable/disable a PasswordComplianceRule rule, you must create a bean in spring-config.xml, and add it to the list of beans in the masterValidator bean defintion.
 
 
-For example, to add a new a new FooRule, you would create the class com.brett.PasswordComplianceService.ComplianceRule.FooRule, and add the following:
+For example, to add a new a new FooRule, you would create the class com.brett.PasswordComplianceService.ComplianceRule.FooRule, and add the fooRule bean as shown below.
 
 
-As a more concrete example, you can change from password length of 5 to 12 excluse to 5 to 12 inclusive, by uncommenting betweenFiveAndTwleveCharsInclusiveBean and commenting out betweenFiveAndTwleveCharsExclusiveBean
+As a more concrete example, you can change from password length of 5 to 12 exclusive to 5 to 12 inclusive, by uncommenting betweenFiveAndTwleveCharsInclusiveBean and commenting out betweenFiveAndTwleveCharsExclusiveBean
 
 ```html
 <bean id="masterValidator" class="com.brett.PasswordComplianceService.MasterValidator">
