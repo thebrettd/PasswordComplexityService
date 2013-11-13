@@ -37,12 +37,4 @@ public class PasswordComplianceApp {
         return myService.validatePassword(passwordToValidate);
     }
 
-    public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/password-servlet.xml");
-        PasswordComplianceService passwordComplianceService = context.getBean(PasswordComplianceService.class);
-        Password password = new Password();
-        password.setMyPassword("abc123");
-        System.out.println(passwordComplianceService.validatePassword(password));
-    }
-
 }
