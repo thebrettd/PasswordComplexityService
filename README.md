@@ -12,6 +12,7 @@ Quick start guide
 Jetty should launch and you will see the following:
 
 2013-11-12 21:10:54.812:INFO:/:Initializing Spring FrameworkServlet 'password'
+
 2013-11-12 21:10:55.670:INFO::Started SelectChannelConnector@0.0.0.0:8080 STARTING
 
 
