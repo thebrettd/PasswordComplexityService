@@ -13,12 +13,12 @@ public class PasswordComplianceService {
 
     public PasswordComplianceService(){ }
 
-    public boolean validatePassword(Password passwordToTest) {
+    public Errors validatePassword(Password passwordToTest) {
         Errors errors = new BeanPropertyBindingResult(passwordToTest, "passwordToTest");
 
         parentValidator.validate(passwordToTest, errors);
 
-        return !errors.hasErrors();
+        return errors;
     }
 
 

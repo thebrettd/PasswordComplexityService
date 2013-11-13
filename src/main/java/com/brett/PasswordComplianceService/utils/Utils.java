@@ -29,7 +29,7 @@ public class Utils {
 
     /***
      * (\p{Digit}|[\p{L}&&[^\p{Lu}]]) - Matches any digit or non-uppercase
-     * +? ensure at least one match is made, and is reluctant (matches as little as possbile)
+     * +? ensure at least one match is made, and is reluctant (matches as little as possible)
      * \\1 is a backreference to the first group (i.e. match whatever is in the first group again)
      * @param myPassword
      * @return

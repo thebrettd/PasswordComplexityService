@@ -1,9 +1,8 @@
 package com.brett.PasswordComplianceService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,19 +20,19 @@ public class PasswordComplianceApp {
     {
         Password passwordToValidate = new Password(password);
 
-        boolean b = validatePassword(passwordToValidate);
-        return generateResponseBody(b);
+        Errors e = validatePassword(passwordToValidate);
+        return generateResponseBody(e);
     }
 
-    private String generateResponseBody(boolean b) {
-        if(b){
+    private String generateResponseBody(Errors e) {
+        if(!e.hasErrors()){
             return "The provided password is valid!";
         }else{
-            return "The specified password is invalid :(";
+            return "The specified password is invalid: " + e.getAllErrors();
         }
     }
 
-    private boolean validatePassword(Password passwordToValidate) {
+    private Errors validatePassword(Password passwordToValidate) {
         return myService.validatePassword(passwordToValidate);
     }
 
